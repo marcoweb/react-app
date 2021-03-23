@@ -20,6 +20,12 @@ export function TodoList() {
         setTodos(newTodos);
     }
 
+    const completeTodo = index => {
+        const newTodos = [...todos];
+        newTodos[index].isCompleted = !newTodos[index].isCompleted;
+        setTodos(newTodos);
+    };
+
     return (
         <div>
             {todos.map((t, index) => (
@@ -27,6 +33,7 @@ export function TodoList() {
                      todo={t}
                      index={index}
                      removeTodo={removeTodo}
+                     completeTodo={completeTodo}
                 />
             ))}
             <TodoForm addTodo={addTodo} />
